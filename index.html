@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+  </head>
+  <body
+    class="font-robotoMono bg-gradient-to-b from-zinc-800 to-black h-screen flex justify-center items-center flex-col"
+  >
+    <div id="title">
+      <h1 class="text-stone-500 font-semibold text-xl mb-7">
+        Password Generator
+      </h1>
+    </div>
+    <div id="mainContainer" class="flex flex-col h-96 text-slate-200">
+      <div
+        id="passwordDisplay"
+        class="bg-zinc-800 flex flex-row w-80 mb-5 justify-between text-xl"
+      >
+        <span class="ml-5 mt-2" class="passwordOutput">ThisIsEighteenChar</span
+        ><button>
+          <img
+            src="./resources/images/clipboard icon.svg"
+            alt="clipboard icon"
+            class="scale-50 bg-transparent hover:text-white"
+          />
+        </button>
+      </div>
+
+      <!-- Password complexity container -->
+      <div
+        id="generateContainer"
+        class="bg-zinc-800 w-80 flex flex-col h-96 text-sm shadow-lg shadow-zinc-900"
+      >
+        <div
+          id="characterLength"
+          class="flex flex-row justify-between w-64 mt-5"
+        >
+          <p class="mt-2 ml-5">Character Length</p>
+          <!-- Character length selected -->
+          <span class="text-green-400 text-3xl">6</span>
+        </div>
+        <!-- Character length input -->
+        <input
+          type="range"
+          name=""
+          id="complexityLength"
+          min="6"
+          max="18"
+          class="mt-2 w-72 ml-4"
+        />
+        <!-- Complexity checkboxes -->
+        <div id="complexityChecks" class="mt-5 ml-5 text-xs">
+          <div class="flex flex-row gap-3">
+            <input
+              type="checkbox"
+              id="uppercaseCheck"
+              class="form-checkbox checked:text-green-400 scale-75 focus:ring-green-400 focus:ring-0"
+            />
+            <p>Include Uppercase Letters</p>
+          </div>
+          <div class="flex flex-row gap-3 mt-3">
+            <input
+              type="checkbox"
+              id="lowercaseCheck"
+              class="form-checkbox checked:text-green-400 scale-75 focus:ring-0"
+            />
+            <p>Include Lowercase Letters</p>
+          </div>
+          <div class="flex flex-row gap-3 mt-3">
+            <input
+              type="checkbox"
+              id="numberCheck"
+              class="form-checkbox checked:text-green-400 scale-75 focus:ring-green-400 focus:ring-0"
+            />
+            <p>Include Numbers</p>
+          </div>
+          <div class="flex flex-row gap-3 mt-3">
+            <input
+              type="checkbox"
+              id="symbolCheck"
+              class="form-checkbox checked:text-green-400 scale-75 focus:ring-green-400 focus:ring-0"
+            />
+            <p>Include Symbols</p>
+          </div>
+        </div>
+        <div
+          id="currentComplexity"
+          class="flex flex-row justify-between bg-zinc-900 w-72 ml-4 mt-3 h-10"
+        >
+          <p class="ml-4 mt-2.5 text-zinc-500 text-sm">STRENGTH</p>
+          <div class="flex flex-row mt-1.5 mr-3">
+            <span id="passwordStrength" class="text-lg">WEAK</span>
+            <!-- Created custom complexity boxes. Filling each background with yellow upon reaching certain complexity requirements -->
+            <div id="complexityBoxes" class="flex gap-1 mt-1 ml-2">
+              <div class="border h-5 w-2 bg-yellow-400"></div>
+              <div class="border h-5 w-2"></div>
+              <div class="border h-5 w-2"></div>
+              <div class="border h-5 w-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="text-green-400 border border-green-400 w-72 mt-3 h-10 ml-4 hover:border-green-200 hover:text-green-200"
+        >
+          GENERATE
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
