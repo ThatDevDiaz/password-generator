@@ -19,8 +19,8 @@
         id="passwordDisplay"
         class="bg-zinc-800 flex flex-row w-80 mb-5 justify-between text-xl"
       >
-        <span class="ml-5 mt-2" class="passwordOutput">ThisIsEighteenChar</span
-        ><button>
+        <span id="output" class="ml-5 mt-2" class="passwordOutput"></span
+        ><button id="clipboard">
           <img
             src="./resources/images/clipboard icon.svg"
             alt="clipboard icon"
@@ -34,21 +34,20 @@
         id="generateContainer"
         class="bg-zinc-800 w-80 flex flex-col h-96 text-sm shadow-lg shadow-zinc-900"
       >
-        <div
-          id="characterLength"
-          class="flex flex-row justify-between w-64 mt-5"
-        >
+        <div class="flex flex-row justify-between w-64 mt-5">
           <p class="mt-2 ml-5">Character Length</p>
           <!-- Character length selected -->
-          <span class="text-green-400 text-3xl">6</span>
+          <span id="characterLength" class="text-green-400 text-3xl"></span>
         </div>
         <!-- Character length input -->
         <input
           type="range"
           name=""
-          id="complexityLength"
+          id="complexityRange"
           min="6"
           max="18"
+          step="1"
+          value="12"
           class="mt-2 w-72 ml-4"
         />
         <!-- Complexity checkboxes -->
@@ -104,11 +103,13 @@
         </div>
 
         <button
+          id="generateBtn"
           class="text-green-400 border border-green-400 w-72 mt-3 h-10 ml-4 hover:border-green-200 hover:text-green-200"
         >
           GENERATE
         </button>
       </div>
     </div>
+    <script src="./index.js"></script>
   </body>
 </html>
