@@ -24,7 +24,7 @@
           <img
             src="./resources/images/clipboard icon.svg"
             alt="clipboard icon"
-            class="scale-50 bg-transparent hover:text-white"
+            class="scale-50 bg-transparent hover:text-white active:scale-75"
           />
         </button>
       </div>
@@ -91,13 +91,13 @@
         >
           <p class="ml-4 mt-2.5 text-zinc-500 text-sm">STRENGTH</p>
           <div class="flex flex-row mt-1.5 mr-3">
-            <span id="passwordStrength" class="text-lg">WEAK</span>
+            <span id="passwordStrength" class="text-lg"></span>
             <!-- Created custom complexity boxes. Filling each background with yellow upon reaching certain complexity requirements -->
             <div id="complexityBoxes" class="flex gap-1 mt-1 ml-2">
-              <div class="border h-5 w-2 bg-yellow-400"></div>
-              <div class="border h-5 w-2"></div>
-              <div class="border h-5 w-2"></div>
-              <div class="border h-5 w-2"></div>
+              <div id="weak" class="border h-5 w-2"></div>
+              <div id="medium" class="border h-5 w-2"></div>
+              <div id="good" class="border h-5 w-2"></div>
+              <div id="great" class="border h-5 w-2"></div>
             </div>
           </div>
         </div>
