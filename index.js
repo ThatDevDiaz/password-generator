@@ -4,19 +4,19 @@
 let output = document.getElementById(`output`);
 let characterLength = document.getElementById(`characterLength`);
 let complexityRange = document.getElementById(`complexityRange`);
-let passwordStrength = document.getElementById(`passwordStrength`);
 let complexityRangeValue = 12;
-let symbolTrue = false;
-let numberTrue = false;
-let uppercaseTrue = false;
-let lowercaseTrue = false;
+let symbolTrue = true;
+let numberTrue = true;
+let uppercaseTrue = true;
+let lowercaseTrue = true;
+let uppercaseCheck = document.getElementById(`uppercaseCheck`);
+let lowercaseCheck = document.getElementById(`lowercaseCheck`);
+let numberCheck = document.getElementById(`numberCheck`);
+let symbolCheck = document.getElementById(`symbolCheck`);
 
 const clipboard = document.getElementById(`clipboard`);
-const uppercaseCheck = document.getElementById(`uppercaseCheck`);
-const lowercaseCheck = document.getElementById(`lowercaseCheck`);
-const numberCheck = document.getElementById(`numberCheck`);
-const symbolCheck = document.getElementById(`symbolCheck`);
 const complexityBoxes = document.getElementById(`complexityBoxes`);
+const passwordStrength = document.getElementById(`passwordStrength`);
 const generateBtn = document.getElementById(`generateBtn`);
 
 characterLength.innerText = 12;
@@ -28,25 +28,45 @@ complexityRange.addEventListener(`input`, function () {
   return complexityRangeValue;
 });
 
+// function to determine password strength
+
+function passwordStrengthCheck() {}
+
 // function that generates random password
 function generatePassword() {
-  const characters =
+  let characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  while (
+    !uppercaseCheck.checked &&
+    !lowercaseCheck.checked &&
+    !numberCheck.checked &&
+    !symbolCheck.checked
+  ) {
+    return (output.innerText = `SELECT AN OPTION`);
+  }
+  if (!uppercaseCheck.checked) {
+    characters = characters.replace(`ABCDEFGHIJKLMNOPQRSTUVWXYZ`, ``);
+    uppercaseTrue = false;
+  }
+  if (!lowercaseCheck.checked) {
+    characters = characters.replace(`abcdefghijklmnopqrstuvwxyz`, ``);
+    lowercaseTrue = false;
+  }
+  if (!numberCheck.checked) {
+    characters = characters.replace(`0123456789`, ``);
+    numberTrue = false;
+  }
+  if (!symbolCheck.checked) {
+    characters = characters.replace(`!@#$%^&*()`, ``);
+    symbolTrue = false;
+  }
   let password = "";
   for (let i = 0; i < complexityRangeValue; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
     password += characters.charAt(randomIndex);
   }
-  console.log(password);
   return password;
 }
-
-// event listeners for checkboxes
-
-uppercaseCheck.addEventListener(`click`, function () {});
-lowercaseCheck.addEventListener(`click`, function () {});
-numberCheck.addEventListener(`click`, function () {});
-symbolCheck.addEventListener(`click`, function () {});
 
 // Generate button event listener
 generateBtn.addEventListener(`click`, function () {
